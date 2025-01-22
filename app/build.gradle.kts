@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("kotlin-android")
+
 }
 
 android {
@@ -29,15 +30,28 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility(JavaVersion.VERSION_1_8)
+        targetCompatibility(JavaVersion.VERSION_1_8)
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
+
 }
 
 dependencies {
+    // Coil
+    implementation("io.coil-kt:coil:2.4.0")
+
+    // ViewBinding delegate
+    implementation("com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.2")
+
+    // Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
 
@@ -52,10 +66,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     // Koin
-    implementation("io.insert-koin:koin-core:3.5.0")
-    implementation("io.insert-koin:koin-android-compat:3.5.0")
-    implementation("io.insert-koin:koin-androidx-navigation:3.5.0")
-    implementation("io.insert-koin:koin-androidx-startup:3.5.0")
+    implementation(libs.koin.core)
+    implementation(libs.koin.android.compat.v350)
+    implementation(libs.koin.androidx.navigation)
+    implementation(libs.koin.androidx.startup)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
