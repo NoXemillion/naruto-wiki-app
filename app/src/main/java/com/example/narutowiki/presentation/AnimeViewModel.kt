@@ -1,13 +1,17 @@
 package com.example.narutowiki.presentation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.narutowiki.common.Resource
 import com.example.narutowiki.data.dataClasses.Character
+import com.example.narutowiki.data.dataClasses.Rank
+import com.example.narutowiki.data.dataClasses.Title
 import com.example.narutowiki.domain.use_cases.GetAnimeUseCase
 import kotlinx.coroutines.launch
+import org.koin.java.KoinJavaComponent.inject
 
 class AnimeViewModel(
     private val getAnimeUseCase: GetAnimeUseCase
@@ -16,7 +20,12 @@ class AnimeViewModel(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    private val _characters: MutableList<List<Character>> = mutableListOf()
+    val characters: MutableList<Character> = mutableListOf()
+    val titleInfoList: MutableList<Title> = mutableListOf()
+
+    init {
+        fetchAnimeData()
+    }
 
     fun fetchAnimeData() {
         viewModelScope.launch {
@@ -24,12 +33,35 @@ class AnimeViewModel(
                 when(result){
                     is Resource.Loading -> {
                         _isLoading.value = true
+                        Log.d("TAG" , "Loading..")
                     }
                     is Resource.Error -> {
                         _isLoading.value = false
+                        Log.d("TAG" , result.data.toString())
                     }
                     is Resource.Success -> {
-                        result.data?.let { _characters.add(it) }
+                        result.data?.forEach { item ->
+                            characters.add(item)
+//                            if(item.rank != null){
+//                                titleInfoList.add(
+//                                    Title(
+//                                        item.name,
+//                                        item.rank.toString(),
+//                                        item.images[item.id]
+//                                    )
+//                                )
+//                            }
+//                            else{
+//                                titleInfoList.add(
+//                                    Title(
+//                                        item.name,
+//                                        null,
+//                                        item.images[item.id]
+//                                    )
+//                                )
+//                            }
+
+                        }
                         _isLoading.value = false
                     }
                 }

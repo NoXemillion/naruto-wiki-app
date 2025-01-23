@@ -1,17 +1,15 @@
 package com.example.narutowiki.data.dataClasses
 
+import com.google.gson.annotations.SerializedName
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class Naruto(
-    @SerialName("characters")
+    @SerializedName("characters")
     val characters: List<Character>,
-    @SerialName("currentPage")
+    @SerializedName("currentPage")
     val currentPage: Int,
-    @SerialName("pageSize")
+    @SerializedName("pageSize")
     val pageSize: Int,
-    @SerialName("totalCharacters")
+    @SerializedName("totalCharacters")
     val totalCharacters: Int
 )

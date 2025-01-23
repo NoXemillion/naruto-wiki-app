@@ -1,6 +1,6 @@
 package com.example.narutowiki.domain
 
-import com.example.narutowiki.data.api
+
 import com.example.narutowiki.data.dataClasses.Character
 import retrofit2.Response
 

@@ -43,6 +43,12 @@ android {
 }
 
 dependencies {
+    // Retrofit Logging
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    // Material Screen
+    implementation("com.google.android.material:material:1.12.0")
+
     // Coil
     implementation("io.coil-kt:coil:2.4.0")
 
@@ -66,16 +72,16 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     // Koin
-    implementation(libs.koin.core)
-    implementation(libs.koin.android.compat.v350)
-    implementation(libs.koin.androidx.navigation)
-    implementation(libs.koin.androidx.startup)
+    implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("io.insert-koin:koin-androidx-navigation:3.5.0")
+    implementation("io.insert-koin:koin-android-compat:3.5.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.coordinatorlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

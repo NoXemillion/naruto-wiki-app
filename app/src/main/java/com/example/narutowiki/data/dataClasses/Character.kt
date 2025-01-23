@@ -1,33 +1,41 @@
 package com.example.narutowiki.data.dataClasses
 
 
+import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Serializable
+
 data class Character(
-    @SerialName("debut")
-    val debut: Debut,
-    @SerialName("family")
-    val family: Family,
-    @SerialName("id")
+    @SerializedName("id")
     val id: Int,
-    @SerialName("images")
-    val images: List<String>,
-    @SerialName("jutsu")
-    val jutsu: List<String>,
-    @SerialName("name")
+    @SerializedName("name")
     val name: String,
-    @SerialName("natureType")
+    @SerializedName("images")
+    val images: List<String>,
+    @SerializedName("debut")
+    val debut: Debut,
+    @SerializedName("jutsu")
+    val jutsu: List<String>,
+    @SerializedName("family")
+    val family: Family,
+    @SerializedName("natureType")
     val natureType: List<String>,
-    @SerialName("personal")
-    val personal: Personal,
-    @SerialName("rank")
+//    @SerializedName("personal")
+//    val personal: Personal,
+    @SerializedName("rank")
     val rank: Rank,
-    @SerialName("tools")
+    @SerializedName("tools")
     val tools: List<String>,
-    @SerialName("uniqueTraits")
-    val uniqueTraits: List<String>,
-    @SerialName("voiceActors")
-    val voiceActors: VoiceActors
+    @SerializedName("uniqueTraits")
+    val uniqueTraits: List<String>
+//    @SerializedName("voiceActors")
+//    val voiceActors: VoiceActors
+)
+
+data class Title(
+    val name: String,
+    val rank: String?,
+    val image: String
 )
