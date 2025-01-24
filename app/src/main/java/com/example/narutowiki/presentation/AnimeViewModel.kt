@@ -27,7 +27,7 @@ class AnimeViewModel(
         fetchAnimeData()
     }
 
-    fun fetchAnimeData() {
+    private fun fetchAnimeData() {
         viewModelScope.launch {
             getAnimeUseCase().collect { result ->
                 when(result){
@@ -40,8 +40,12 @@ class AnimeViewModel(
                         Log.d("TAG" , result.data.toString())
                     }
                     is Resource.Success -> {
+                        _isLoading.value = false
+                        _isLoading.postValue(false)
+                        Log.d("TAG55" , "isLoading value -> ")
                         result.data?.forEach { item ->
                             characters.add(item)
+                            Log.d("TAG55" , "авпвапва")
 //                            if(item.rank != null){
 //                                titleInfoList.add(
 //                                    Title(
@@ -62,7 +66,7 @@ class AnimeViewModel(
 //                            }
 
                         }
-                        _isLoading.value = false
+
                     }
                 }
 
