@@ -53,7 +53,7 @@ dependencies {
     implementation("io.coil-kt:coil:2.4.0")
 
     // ViewBinding delegate
-    implementation("com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.2")
+    implementation("com.github.yogacp:android-viewbinding:1.0.5")
 
     // Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")

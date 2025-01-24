@@ -5,18 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.narutowiki.R
 import com.example.narutowiki.databinding.FragmentMainScreenBinding
 import com.example.narutowiki.presentation.AnimeViewModel
-import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainScreenFragment : Fragment() {
 
-    private val binding: FragmentMainScreenBinding by viewBinding(FragmentMainScreenBinding::bind)
+    private val binding: FragmentMainScreenBinding by viewBinding()
     private val animeViewModel: AnimeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {

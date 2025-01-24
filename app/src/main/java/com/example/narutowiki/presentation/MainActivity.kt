@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.system.Os.bind
 import android.util.Log
 import android.view.View
+import android.viewbinding.library.activity.viewBinding
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,24 +15,17 @@ import com.example.narutowiki.databinding.ActivityMainBinding
 import com.example.narutowiki.presentation.introduction.IntroFragment
 import com.example.narutowiki.presentation.mainScreen.AnimeAdapter
 import com.example.narutowiki.presentation.mainScreen.MainScreenFragment
-import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by viewBinding()
     private val animeViewModel: AnimeViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         observeLoadingState()
-
-
-
     }
     private fun observeLoadingState() {
         animeViewModel.isLoading.observe(this) { isLoading ->

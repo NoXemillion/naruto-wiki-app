@@ -6,17 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.viewModels
 import coil.load
 import com.example.narutowiki.R
 import com.example.narutowiki.databinding.IntroFragmentBinding
 import com.example.narutowiki.presentation.AnimeViewModel
-import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import kotlinx.coroutines.CoroutineScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class IntroFragment : Fragment() {
-    private val binding: IntroFragmentBinding by viewBinding(IntroFragmentBinding::bind)
+    private val binding: IntroFragmentBinding by viewBinding()
 
     private val animeViewModel: AnimeViewModel by viewModel()
 
