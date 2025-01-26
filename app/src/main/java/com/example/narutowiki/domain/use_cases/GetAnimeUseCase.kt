@@ -5,6 +5,7 @@ import com.example.narutowiki.common.Resource
 import com.example.narutowiki.data.AnimeRepositoryImpl
 import com.example.narutowiki.data.dataClasses.Character
 import com.example.narutowiki.domain.AnimeRepository
+import com.example.narutowiki.presentation.AnimeViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

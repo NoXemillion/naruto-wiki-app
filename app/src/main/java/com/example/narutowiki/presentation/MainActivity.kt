@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                 is Resource.Loading -> {
                     showIntroFragment()
                 }
-
                 is Resource.Error -> {
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
                 }

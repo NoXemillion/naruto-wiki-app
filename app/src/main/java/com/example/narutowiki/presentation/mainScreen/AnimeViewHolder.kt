@@ -17,24 +17,35 @@ class AnimeViewHolder(
 ): RecyclerView.ViewHolder(itemView){
 
     fun bind(position: Int) {
+        var character = animeViewModel.characters[position]
+
         val name: TextView = itemView.findViewById(R.id.name)
         val cardViewBackground: ImageView = itemView.findViewById(R.id.cardViewBackground)
         val favouriteIcon: ImageButton = itemView.findViewById(R.id.characterIcon)
 
-        name.text = animeViewModel.characters[position].name
+        name.text = character.name
 
-        if (animeViewModel.characters[position].images.isNullOrEmpty()) {
+        if (character.images.isNullOrEmpty()) {
             cardViewBackground.setImageResource(R.drawable.error_icon)
         } else {
-            cardViewBackground.load(animeViewModel.characters[position].images.first()) {
-                Log.d("TAG" , animeViewModel.characters[position].images.first().toString())
+            cardViewBackground.load(character.images.first()) {
+                Log.d("TAG" , character.images.first().toString())
                 crossfade(true)
                 placeholder(R.drawable.error_icon)
                 error(R.drawable.error_icon)
             }
         }
+
+        if(character.IsFavourite){
+            favouriteIcon.setImageResource(R.drawable.baseline_favorite_24)
+        }
+        else {
+            favouriteIcon.setImageResource(R.drawable.baseline_favorite_border_24)
+        }
+
         favouriteIcon.setOnClickListener{
-            if(animeViewModel.isClicked.value == true){
+            character.IsFavourite = !character.IsFavourite
+            if(character.IsFavourite){
                 favouriteIcon.setImageResource(R.drawable.baseline_favorite_24)
                 favouriteIcon
                     .animate()
@@ -53,8 +64,6 @@ class AnimeViewHolder(
             else{
                 favouriteIcon.setImageResource(R.drawable.baseline_favorite_border_24)
             }
-            animeViewModel.isClicked.value = !animeViewModel.isClicked.value!!
-
         }
     }
 

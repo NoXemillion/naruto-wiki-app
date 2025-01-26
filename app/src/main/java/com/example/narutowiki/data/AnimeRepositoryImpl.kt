@@ -16,14 +16,11 @@ class AnimeRepositoryImpl(
         val response = api.getAllCharacters()
         if(response.isSuccessful){
             val characters = response.body()?.characters
-            Log.d("TAG3", "Result -> $characters")
             return Response.success(characters)
         }
         else {
-            Log.e("TAG3", "Error: ${response.errorBody()?.string()}")
             return Response.error(response.code(), response.errorBody() ?: ResponseBody.create(null, "Unknown error"))
         }
-
     }
 
     override suspend fun getCharacterById(id: Int): Response<Character> {

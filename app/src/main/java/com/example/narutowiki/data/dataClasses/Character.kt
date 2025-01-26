@@ -29,9 +29,10 @@ data class Character(
     @SerializedName("tools")
     val tools: List<String>,
     @SerializedName("uniqueTraits")
-    val uniqueTraits: List<String>
+    val uniqueTraits: List<String>,
 //    @SerializedName("voiceActors")
 //    val voiceActors: VoiceActors
+    var IsFavourite: Boolean = false
 )
 
 data class Title(

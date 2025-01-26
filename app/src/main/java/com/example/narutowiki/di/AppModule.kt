@@ -10,7 +10,6 @@ import org.koin.dsl.module
 import org.koin.dsl.single
 
 val appModule = module {
-
     single<AnimeRepository> {
         AnimeRepositoryImpl(get())
     }

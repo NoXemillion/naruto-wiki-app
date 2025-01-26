@@ -1,5 +1,3 @@
 package com.example.narutowiki.common
 
-object Contances{
-
-}
+object Contances{}
