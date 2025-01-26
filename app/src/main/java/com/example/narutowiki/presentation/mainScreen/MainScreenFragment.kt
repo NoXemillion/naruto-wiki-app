@@ -14,22 +14,10 @@ import com.example.narutowiki.databinding.FragmentMainScreenBinding
 import com.example.narutowiki.presentation.AnimeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainScreenFragment : Fragment() {
+class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
     private val binding: FragmentMainScreenBinding by viewBinding()
     private val animeViewModel: AnimeViewModel by viewModel()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_main_screen, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,7 +26,7 @@ class MainScreenFragment : Fragment() {
         val bottomNavigationView = binding.bottomNavigation
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.setHasFixedSize(true)
-        var adapter = AnimeAdapter(animeViewModel.characters)
+        var adapter = AnimeAdapter(animeViewModel)
         recyclerView.adapter = adapter
 
         recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener(){

@@ -1,19 +1,19 @@
 package com.example.narutowiki.data.dataClasses
 
-
-import kotlinx.serialization.SerialName
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
-@Serializable
+
+
 data class Age(
-    @SerialName("Academy Graduate")
+    @SerializedName("Academy Graduate")
     val academyGraduate: String,
-    @SerialName("Boruto Manga")
+    @SerializedName("Boruto Manga")
     val borutoManga: String,
-    @SerialName("Chunin Promotion")
+    @SerializedName("Chunin Promotion")
     val chuninPromotion: String,
-    @SerialName("Part I")
+    @SerializedName("Part I")
     val partI: String,
-    @SerialName("Part II")
+    @SerializedName("Part II")
     val partII: String
 )

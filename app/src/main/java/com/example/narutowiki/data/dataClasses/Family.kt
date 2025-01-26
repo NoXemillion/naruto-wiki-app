@@ -1,31 +1,29 @@
 package com.example.narutowiki.data.dataClasses
 
+import com.google.gson.annotations.SerializedName
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class Family(
-    @SerialName("adoptive brother")
+    @SerializedName("adoptive brother")
     val adoptiveBrother: String,
-    @SerialName("adoptive father")
+    @SerializedName("adoptive father")
     val adoptiveFather: String,
-    @SerialName("adoptive son")
+    @SerializedName("adoptive son")
     val adoptiveSon: String,
-    @SerialName("brother")
+    @SerializedName("brother")
     val brother: String,
-    @SerialName("cousin")
+    @SerializedName("cousin")
     val cousin: String,
-    @SerialName("depowered form")
+    @SerializedName("depowered form")
     val depoweredForm: String,
-    @SerialName("father")
+    @SerializedName("father")
     val father: String,
-    @SerialName("husband")
+    @SerializedName("husband")
     val husband: String,
-    @SerialName("incarnation with the god tree")
+    @SerializedName("incarnation with the god tree")
     val incarnationWithTheGodTree: String,
-    @SerialName("nephew")
+    @SerializedName("nephew")
     val nephew: String,
-    @SerialName("son")
+    @SerializedName("son")
     val son: String
 )

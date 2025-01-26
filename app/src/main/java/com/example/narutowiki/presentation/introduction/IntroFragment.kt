@@ -15,21 +15,13 @@ import com.example.narutowiki.presentation.AnimeViewModel
 import kotlinx.coroutines.CoroutineScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class IntroFragment : Fragment() {
+class IntroFragment : Fragment(R.layout.intro_fragment) {
     private val binding: IntroFragmentBinding by viewBinding()
-
     private val animeViewModel: AnimeViewModel by viewModel()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.intro_fragment , container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         binding.introImage.load("https://i.pinimg.com/736x/9b/e3/21/9be3212ad2d9e9f8003f7f08914fe2cd.jpg"){
             crossfade(true)

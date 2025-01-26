@@ -16,29 +16,28 @@ import retrofit2.Response
 class GetAnimeUseCase(
     private val animeRepository: AnimeRepository
 ) {
-
-    operator fun invoke(): Flow<Resource<List<Character>>> = flow {
-        Log.d("TAG99" , "Okaaay")
+    operator fun invoke(
+        characters: MutableList<Character>
+    ): Flow<Resource<List<Character>>> = flow {
         emit(Resource.Loading())
-        Log.d("TAG99" , "Okaaay2")
         val anime = animeRepository.getAllCharacters()
-        Log.d("TAG99" , "Okaaay3")
-        Log.d("TAG87" , "RESULT -> ${anime.body().toString()}")
-        if (anime.isSuccessful) {
+
+        if(anime.isSuccessful){
             val animeInfo = anime.body()
-            Log.d("TAG87" , "авыавы")
-            if (animeInfo != null) {
-                Log.d("TAG77" , animeInfo.toString())
+            if(animeInfo != null){
+                animeInfo.forEach{ item ->
+                    characters.add(item)
+                }
                 emit(Resource.Success(animeInfo))
-            } else {
-                emit(Resource.Error(message = "Response body is null"))
             }
-        }else{
-            Log.d("TAG87" , "авыпвыпвап")
-            emit(Resource.Error(message = animeRepository.getAllCharacters().errorBody().toString()))
+            else{
+                emit(Resource.Error(message = "List is empty"))
+            }
+        }
+        else{
+            emit(Resource.Error(message = "Query wasn't successfully"))
         }
     }.catch { e ->
-        Log.d("TAG97" , "пваыпвапва")
         emit(Resource.Error(message = e.localizedMessage ?: animeRepository.getAllCharacters().errorBody().toString()))
     }
 }

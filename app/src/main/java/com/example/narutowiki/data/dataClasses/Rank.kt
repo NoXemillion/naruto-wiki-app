@@ -1,13 +1,11 @@
 package com.example.narutowiki.data.dataClasses
 
+import com.google.gson.annotations.SerializedName
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class Rank(
-    @SerialName("ninjaRank")
+    @SerializedName("ninjaRank")
     val ninjaRank: NinjaRank,
-    @SerialName("ninjaRegistration")
+    @SerializedName("ninjaRegistration")
     val ninjaRegistration: String
 )

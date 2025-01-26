@@ -1,13 +1,11 @@
 package com.example.narutowiki.data.dataClasses
 
+import com.google.gson.annotations.SerializedName
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class Weight(
-    @SerialName("Part I")
+    @SerializedName("Part I")
     val partI: String,
-    @SerialName("Part II")
+    @SerializedName("Part II")
     val partII: String
 )

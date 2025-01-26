@@ -1,43 +1,42 @@
 package com.example.narutowiki.data.dataClasses
 
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
-@Serializable
+
 data class Personal(
-    @SerialName("affiliation")
+    @SerializedName("affiliation")
     val affiliation: String,
-    @SerialName("age")
+    @SerializedName("age")
     val age: Age,
-    @SerialName("birthdate")
+    @SerializedName("birthdate")
     val birthdate: String,
-    @SerialName("bloodType")
+    @SerializedName("bloodType")
     val bloodType: String,
-    @SerialName("clan")
+    @SerializedName("clan")
     val clan: String,
-    @SerialName("classification")
+    @SerializedName("classification")
     val classification: String,
-    @SerialName("height")
+    @SerializedName("height")
     val height: Height,
-    @SerialName("jinchūriki")
+    @SerializedName("jinchūriki")
     val jinchūriki: List<String>,
-    @SerialName("kekkeiGenkai")
+    @SerializedName("kekkeiGenkai")
     val kekkeiGenkai: String,
-    @SerialName("occupation")
+    @SerializedName("occupation")
     val occupation: String,
-    @SerialName("partner")
+    @SerializedName("partner")
     val partner: String,
-    @SerialName("sex")
+    @SerializedName("sex")
     val sex: String,
-    @SerialName("species")
+    @SerializedName("species")
     val species: String,
-    @SerialName("status")
+    @SerializedName("status")
     val status: String,
-    @SerialName("team")
+    @SerializedName("team")
     val team: String,
-    @SerialName("titles")
+    @SerializedName("titles")
     val titles: List<String>,
-    @SerialName("weight")
+    @SerializedName("weight")
     val weight: Weight
 )

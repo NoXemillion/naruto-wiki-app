@@ -1,23 +1,22 @@
 package com.example.narutowiki.data.dataClasses
 
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
-@Serializable
+
 data class Debut(
-    @SerialName("anime")
+    @SerializedName("anime")
     val anime: String,
-    @SerialName("appearsIn")
+    @SerializedName("appearsIn")
     val appearsIn: String,
-    @SerialName("game")
+    @SerializedName("game")
     val game: String,
-    @SerialName("manga")
+    @SerializedName("manga")
     val manga: String,
-    @SerialName("movie")
+    @SerializedName("movie")
     val movie: String,
-    @SerialName("novel")
+    @SerializedName("novel")
     val novel: String,
-    @SerialName("ova")
+    @SerializedName("ova")
     val ova: String
 )
