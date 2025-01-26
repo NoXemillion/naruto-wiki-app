@@ -17,7 +17,7 @@ class AnimeViewHolder(
 ): RecyclerView.ViewHolder(itemView){
 
     fun bind(position: Int) {
-        var character = animeViewModel.characters[position]
+        val character = animeViewModel.characters[position]
 
         val name: TextView = itemView.findViewById(R.id.name)
         val cardViewBackground: ImageView = itemView.findViewById(R.id.cardViewBackground)

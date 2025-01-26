@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface Api {
 
-    @GET("/api/character?page=1&limit=200")
+    @GET("/api/character?page=1&limit=500")
     suspend fun getAllCharacters(): Response<Naruto>
 
     @GET("/api/character/{id}")
