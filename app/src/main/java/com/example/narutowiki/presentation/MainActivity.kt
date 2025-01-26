@@ -29,8 +29,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        observeLoadingState()
         animeViewModel.fetchAnimeState()
+        observeLoadingState()
+
     }
     private fun observeLoadingState() {
         animeViewModel.animeState.observe(this){ state->

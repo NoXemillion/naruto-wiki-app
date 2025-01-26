@@ -28,6 +28,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         recyclerView.setHasFixedSize(true)
         var adapter = AnimeAdapter(animeViewModel)
         recyclerView.adapter = adapter
+        adapter.submitList(animeViewModel.characters)
 
         recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener(){
             private var isScrollDown = false
