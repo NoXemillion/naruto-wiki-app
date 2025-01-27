@@ -29,7 +29,6 @@ class AnimeViewHolder(
             cardViewBackground.setImageResource(R.drawable.error_icon)
         } else {
             cardViewBackground.load(character.images.first()) {
-                Log.d("TAG" , character.images.first().toString())
                 crossfade(true)
                 placeholder(R.drawable.error_icon)
                 error(R.drawable.error_icon)

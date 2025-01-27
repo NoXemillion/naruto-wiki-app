@@ -14,9 +14,6 @@ class AnimeViewModel(
 ): ViewModel() {
     val characters: MutableList<Character> = mutableListOf()
 
-    private val _isClicked = MutableLiveData<Boolean>(false)
-    val isClicked: MutableLiveData<Boolean> get() = _isClicked
-
     private val _animeState = MutableLiveData<Resource<List<Character>>>()
     val animeState: LiveData<Resource<List<Character>>> get() = _animeState
 
